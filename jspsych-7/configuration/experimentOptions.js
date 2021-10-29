@@ -38,42 +38,25 @@ var educationOptions = ["(1) <br><br> Primary School ",
 ];
 
 //Sexual Risk-taking Behavior Inventory Options
-var srtbLikelihoodOptions = ["(1) <br><br> Extremely <br> Unlikely ",
-    "(2) <br><br> Moderately <br> Unlikely",
-    "(3) <br><br> Somewhat <br> Unlikely",
-    "(4) <br><br> Not <br> Sure",
-    "(5) <br><br> Somewhat <br> Likely",
-    "(6) <br><br> Moderately <br> Likely",
-    "(7) <br><br> Extremely <br> Likely"
+var DOSPERTLikelihoodOptions = ["(1) <br><br> Extremely <br> Unlikely ",
+    "(2) <br><br> Unlikely",
+    "(3) <br><br> Not <br> sure",
+    "(4) <br><br> Likely",
+    "(5) <br><br> Very <br> Likely",
 ];
 
-var srtbRiskOptions = ["(1) <br><br> Not at <br> all Risky",
-    "(2) <br><br> Slightly <br> Risky",
-    "(3) <br><br> Somewhat <br> Risky",
-    "(4) <br><br> Moderately <br> Risky",
-    "(5) <br><br> Risky",
-    "(6) <br><br> Very <br> Risky",
-    "(7) <br><br> Extremely <br> Risky"
+var DOSPERTRiskOptions = ["(1) <br><br> Not at <br> all risky",
+    "(2) <br><br> Somewhat <br> Risky",
+    "(3) <br><br> Moderately <br> Risky",
+    "(4) <br><br> Very <br> Risky",
+    "(5) <br><br> Extremely <br> Risky"
 ];
 
-var srtbBenefitOptions = ["(1) <br><br> No benefits <br> at all ",
-    "(2) <br><br> Slight <br> Benefits",
-    "(3) <br><br> Some <br> Benefits",
-    "(4) <br><br> Moderate <br> Benefits",
-    "(5) <br><br> More <br> Benefits",
-    "(6) <br><br> Very <br> Benefits",
-    "(7) <br><br> Great <br> Benefits"
-];
-
-var srtbFrequencyOptions = [
-    "(1) <br><br> Never",
-    "(2) <br><br> Seldom",
-    "(3) <br><br> Once in <br> two-three months",
-    "(4) <br><br> Once a month",
-    "(5) <br><br> Once in a <br> week-two weeks",
-    "(6) <br><br> Numerous <br> times a week",
-    "(7) <br><br> Almost every day",
-    "(8) <br><br> At least <br> once a day",
+var DOSPERTBenefitsOptions = ["(1) <br><br> No benefits <br> at all ",
+    "(2) <br><br> Few <br> Benefits",
+    "(3) <br><br> Moderate <br> Benefits",
+    "(4) <br><br> Many <br> Benefits",
+    "(5) <br><br> Great <br> Benefits"
 ];
 
 //Domianance, Prestige, and Leadership Options
@@ -94,41 +77,7 @@ var umsOptions = ["(1) <br><br> Not <br> Important <br> Me",
     "(6) <br><br> Extremely Important <br> To Me"
 ];
 
-//Sexual Orientation Inventory Options
-var soiOptionsa = ["(1) <br><br> 0",
-    "(2) <br><br> 1",
-    "(3) <br><br> 2",
-    "(4) <br><br> 3",
-    "(5) <br><br> 4",
-    "(6) <br><br> 5-6",
-    "(7) <br><br> 7-9",
-    "(8) <br><br> 10-19",
-    "(9) <br><br> 20 or more"
-]
 
-var soiOptionsb = [
-    "(1)  <br> Strongly disagree",
-    "(2)  <br> Moderately disagree",
-    "(3)  <br> Disagree",
-    "(4)  <br> Somewhat disagree",
-    "(5)  <br> Neither agree nor disagree",
-    "(6)  <br> Somewhat agree",
-    "(7)  <br> Agree",
-    "(8)  <br> Moderately agree",
-    "(9)  <br> Strongly agree"
-]
-
-var soiOptionsc = [
-    "(1)  <br>  Never ",
-    "(2)  <br>  Very seldom",
-    "(3)  <br>  About once every two or three months",
-    "(4)  <br>  About once a month",
-    "(5)  <br>  About once every two weeks",
-    "(6)  <br>  About once a week",
-    "(7)  <br>  Several times per week",
-    "(8)  <br>  Nearly every day",
-    "(9)  <br>  At least once a day"
-]
 
 var pniOptions = ["(1) <br><br> Not like <br> me at all",
     "(2) <br><br> Not like me",
@@ -138,7 +87,7 @@ var pniOptions = ["(1) <br><br> Not like <br> me at all",
 ];
 
 
-var optionsChange = ["(1)", "(2)", "(3)", "(4)", "(5)"];
+var scale_change_options = ["(1)", "(2)", "(3)", "(4)", "(5)"];
 
 var fairnessOptions = ["(1) <br><br> Not fair <br> at all", "(2) <br><br> Somewhat <br> unfair", "(3) <br><br> Neither fair <br> nor <br> unfair", "(4) <br><br> Slightly <br> fair", "(5) <br><br> Very fair"]
 

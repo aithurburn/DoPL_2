@@ -1,19 +1,5 @@
 var contactNumber = (Math.floor((Math.random() * ((9999999 - 1000000) + 1))) + 1000000);
 
-var genVar1 = ["he", "she"];
-
-var genVar5 = ["He", "She"];
-
-var genVar2 = ["him", "her"];
-
-var genVar3 = ["his", "hers"];
-
-var genVar4 = (genVar2[1] === "him") ? "himself" : "herself";
-
-var nameBank1 = ["Alex", "Sam", "Jo", "Cameron", "Avery", "Sam", "Kai", "Cody", "Devin", "Dylan", "Cody", "Corey", "Kai", "Jae", "Sam", "Adrian", "Kellan", "Max", "Taylor", "Corey", "Jessie"];
-
-var nameBank2 = ["Corey", "Kyle", "Ryan", "Taylor", "Jo", "Kam", "Cameron", "Jay", "Alex", "Jordan", "Kay", "Rudy", "Quinn", "Jaime"];
-var nameBank3 = ["Blake", "Kyle", "Alex"];
 
 //Demographic Stimuli
 var ageStimulus = "What is your age?";
@@ -29,15 +15,15 @@ var educationStimulus = "What is the highest level of education you have attaine
 var realism = "This situation is realistic.";
 
 //Scale Change
-var scaleChangeStimulusOne = "You will now be presented with a series of statements, please be as truthful as possible. Please read each statement below and pay attention to the scale below each. Please confirm that you understand by selecting the number <u>1</u> below.";
+var scale_change_1 = "You will now be presented with a series of statements, please be as truthful as possible. Please read each statement below and pay attention to the scale below each. Please confirm that you understand by selecting the number <u>1</u> below.";
 
-var scaleChangeStimulusTwo = "Please note, the scale below each question is now about to change. Please confirm that you understand by selecting the number 2 below.";
+var scale_change_2 = "Please note, the scale below each question is now about to change. Please confirm that you understand by selecting the number 2 below.";
 
-var scaleChangeStimulusThree = "Please note, the scale below each question is now about to change. Please confirm that you understand by selecting the number 3 below.";
+var scale_change_3 = "Please note, the scale below each question is now about to change. Please confirm that you understand by selecting the number 3 below.";
 
-var scaleChangeStimulusFour = "Please note, the scale below each question is now about to change. Please confirm that you understand by selecting the number 4 below.";
+var scale_change_4 = "Please note, the scale below each question is now about to change. Please confirm that you understand by selecting the number 4 below.";
 
-var scaleChangeStimulusFive = "Please note, the scale below each question is now about to change. Please confirm that you understand by selecting the number 5 below.";
+var scale_change_5 = "Please note, the scale below each question is now about to change. Please confirm that you understand by selecting the number 5 below.";
 
 var vignetteScaleChange = "<p>Next you will be asked to read a number of short stories. At the end of each story there will be a question, please respond to the question as truthfully as possible. Please press 'Continue' or 'y' to proceed. If you choose not to, please press 'Do not continue' or 'n'. </p>";
 
@@ -119,89 +105,135 @@ var PNI_27 = "I can't stand relying on other people because it makes me feel wea
 var PNI_28 = "When others get a glimpse of my needs, I feel anxious and ashamed.";
 
 
-//Sexual Orientation Inventory Revised
-var SOI_1 = "With how many different partners have you had sex within the past 12 months? ";
-var SOI_2 = "With how many different partners have you had sexual intercourse on one and only one occasion? ";
-var SOI_3 = "With how many different partners have you had sexual intercourse without having an interest in a long-term committed relationship with this person? ";
-var SOI_4 = "Sex without love is OK. ";
-var SOI_5 = 'I can imagine myself being comfortable and enjoying "casual" sex with different partners.';
-var SOI_6 = "I do not want to have sex with a person until I am sure that we will have a long-term, serious relationship. ";
-var SOI_7 = "How often do you have fantasies about having sex with someone you are not in a committed romantic relationship with? ";
-var SOI_8 = "How often do you experience sexual arousal when you are in contact with someone you are not in a committed romantic relationship with? ";
-var SOI_9 = "In everyday life, how often do you have spontaneous fantasies about having sex with someone you have just met?";
 
-//Sexual Risk-taking Behavior Scale
+
+//DOSPERT
 //Risk
-var SRTB_Risk_1 = "How much risk in: <br> Oral sex";
-var SRTB_Risk_2 = "How much risk in: <br> Casual sexual intercourse";
-var SRTB_Risk_3 = "How much risk in: <br> Having sex with multiple partners";
-var SRTB_Risk_4 = "How much risk in: <br> Dangerous masturbation (such as, auto-erotic suffixation) ";
-var SRTB_Risk_5 = "How much risk in: <br> Anal sex without a condom";
-var SRTB_Risk_6 = "How much risk in: <br> Sexual activity with multiple participants";
-var SRTB_Risk_7 = "How much risk in: <br> Sexual activity involving violence which may lead to significant injury ";
-var SRTB_Risk_8 = "How much risk in: <br> Sex under influence of substances (drugs/alcohol)";
-var SRTB_Risk_9 = "How much risk in: <br> Sex with a new partner: <br> when his/her STD history is unknown and without using protection of any kind.";
-var SRTB_Risk_10 = "How much risk in: <br> Sex with a new partner: <br> when his/her STD history is unknown, without using a condom, yet using birth control ";
-var SRTB_Risk_11 = "How much risk in: <br> Sex with a new partner: <br> when you know he/she doesn't have history of STD and without using protection of any kind.";
-var SRTB_Risk_12 = "How much risk in: <br> Sex with a new partner: <br> when you know he/she doesn't have history of STD,  without using a condom, yet using birth control";
-var SRTB_Risk_13 = "How much risk in: <br> Uncommitted yet stable sexual relationship <br> when his/her STD history is unknown and without using protection of any kind.";
-var SRTB_Risk_14 = "How much risk in: <br> Uncommitted yet stable sexual relationship <br> when his/her STD history is unknown, without using a condom, yet using birth control ";
-var SRTB_Risk_15 = "How much risk in: <br> Uncommitted yet stable sexual relationship <br> when you know he/she doesn't have history of STD and without using protection of any kind.";
-var SRTB_Risk_16 = "How much risk in: <br> Uncommitted yet stable sexual relationship <br> when you know he/she doesn't have history of STD,  without using a condom, yet using birth control";
+var DOSPERT_Risk_1 = "Admitting that your tastes are different from those of your friends.";
+var DOSPERT_Risk_2 = "Going camping in the wilderness, beyond the civilization of a campground.";
+var DOSPERT_Risk_3 = "Betting a day’s income at the horse races.";
+var DOSPERT_Risk_4 = "Buying an illegal drug for your own use.";
+var DOSPERT_Risk_5 = "Cheating on an exam.";
+var DOSPERT_Risk_6 = "Chasing a tornado or hurricane by car to take dramatic photos.";
+var DOSPERT_Risk_7 = "Investing 10% of your annual income in a moderate growth mutual fund.";
+var DOSPERT_Risk_8 = "Consuming five or more servings of alcohol in a single evening.";
+var DOSPERT_Risk_9 = "Cheating by a significant amount on your income tax return.";
+var DOSPERT_Risk_10 = "Disagreeing with your father on a major issue.";
+var DOSPERT_Risk_11 = "Betting a day’s income at a high stake poker game.";
+var DOSPERT_Risk_12 = "Having an affair with a married man or woman.";
+var DOSPERT_Risk_13 = "Forging somebody’s signature.";
+var DOSPERT_Risk_14 = "Passing off somebody else’s work as your own.";
+var DOSPERT_Risk_15 = "Going on a vacation in a third-world country without prearranged travel and hotel accommodations.";
+var DOSPERT_Risk_16 = "Arguing with a friend about an issue on which he or she has a very different opinion.";
+var DOSPERT_Risk_17 = "Going down a ski run that is beyond your ability or closed.";
+var DOSPERT_Risk_18 = "Investing 5% of your annual income in a very speculative stock.";
+var DOSPERT_Risk_19 = "Approaching your boss to ask for a raise.";
+var DOSPERT_Risk_20 = "Illegally copying a piece of software.";
+var DOSPERT_Risk_21 = "Going whitewater rafting during rapid water flows in the spring.";
+var DOSPERT_Risk_22 = "Betting a day’s income on the outcome of a sporting event (e.g. baseball, soccer, or football).";
+var DOSPERT_Risk_23 = "Telling a friend if his or her significant other has made a pass at you.";
+var DOSPERT_Risk_24 = "Investing 5% of your annual income in a conservative stock.";
+var DOSPERT_Risk_25 = "Shoplifting a small item (e.g. a lipstick or a pen).";
+var DOSPERT_Risk_26 = "Wearing provocative or unconventional clothes on occasion.";
+var DOSPERT_Risk_27 = "Engaging in unprotected sex.";
+var DOSPERT_Risk_28 = "Stealing an additional TV cable connection off the one you pay for.";
+var DOSPERT_Risk_29 = "Not wearing a seatbelt when being a passenger in the front seat.";
+var DOSPERT_Risk_30 = "Investing 10% of your annual income in government bonds (treasury bills).";
+var DOSPERT_Risk_31 = "Periodically engaging in a dangerous sport (e.g. mountain climbing or sky diving).";
+var DOSPERT_Risk_32 = "Not wearing a helmet when riding a motorcycle.";
+var DOSPERT_Risk_33 = "Gambling a week’s income at a casino.";
+var DOSPERT_Risk_34 = "Taking a job that you enjoy over one that is prestigious but less enjoyable.";
+var DOSPERT_Risk_35 = "Defending an unpopular issue that you believe in at a social occasion.";
+var DOSPERT_Risk_36 = "Exposing yourself to the sun without using sunscreen.";
+var DOSPERT_Risk_37 = "Trying out bungee jumping at least once.";
+var DOSPERT_Risk_38 = "Piloting your own small plane, if you could.";
+var DOSPERT_Risk_39 = "Walking home alone at night in a somewhat unsafe area of town.";
+var DOSPERT_Risk_40 = "Regularly eating high cholesterol foods.";
 
 //Likelihood
-var SRTB_Likelihood_1 = "The likelihood of you: <br> Oral sex";
-var SRTB_Likelihood_2 = "The likelihood of you: <br> Casual sexual intercourse";
-var SRTB_Likelihood_3 = "The likelihood of you: <br> Having sex with multiple partners";
-var SRTB_Likelihood_4 = "The likelihood of you: <br> Dangerous masturbation (such as, auto-erotic suffixation) ";
-var SRTB_Likelihood_5 = "The likelihood of you: <br> Anal sex without a condom";
-var SRTB_Likelihood_6 = "The likelihood of you: <br> Sexual activity with multiple participants";
-var SRTB_Likelihood_7 = "The likelihood of you: <br> Sexual activity involving violence which may lead to significant injury ";
-var SRTB_Likelihood_8 = "The likelihood of you: <br> Sex under influence of substances (drugs/alcohol)";
-var SRTB_Likelihood_9 = "The likelihood of you: <br> Sex with a new partner: <br> when his/her STD history is unknown and without using protection of any kind.";
-var SRTB_Likelihood_10 = "The likelihood of you: <br> Sex with a new partner: <br> when his/her STD history is unknown, without using a condom, yet using birth control ";
-var SRTB_Likelihood_11 = "The likelihood of you: <br> Sex with a new partner: <br> when you know he/she doesn't have history of STD and without using protection of any kind.";
-var SRTB_Likelihood_12 = "The likelihood of you: <br> Sex with a new partner: <br> when you know he/she doesn't have history of STD,  without using a condom, yet using birth control";
-var SRTB_Likelihood_13 = "The likelihood of you: <br> Uncommitted yet stable sexual relationship <br> when his/her STD history is unknown and without using protection of any kind.";
-var SRTB_Likelihood_14 = "The likelihood of you: <br> Uncommitted yet stable sexual relationship <br> when his/her STD history is unknown, without using a condom, yet using birth control ";
-var SRTB_Likelihood_15 = "The likelihood of you: <br> Uncommitted yet stable sexual relationship <br> when you know he/she doesn't have history of STD and without using protection of any kind.";
-var SRTB_Likelihood_16 = "The likelihood of you: <br> Uncommitted yet stable sexual relationship <br> when you know he/she doesn't have history of STD,  without using a condom, yet using birth control";
+var DOSPERT_likelihood_1 = "Admitting that your tastes are different from those of your friends.";
+var DOSPERT_likelihood_2 = "Going camping in the wilderness, beyond the civilization of a campground.";
+var DOSPERT_likelihood_3 = "Betting a day’s income at the horse races.";
+var DOSPERT_likelihood_4 = "Buying an illegal drug for your own use.";
+var DOSPERT_likelihood_5 = "Cheating on an exam.";
+var DOSPERT_likelihood_6 = "Chasing a tornado or hurricane by car to take dramatic photos.";
+var DOSPERT_likelihood_7 = "Investing 10% of your annual income in a moderate growth mutual fund.";
+var DOSPERT_likelihood_8 = "Consuming five or more servings of alcohol in a single evening.";
+var DOSPERT_likelihood_9 = "Cheating by a significant amount on your income tax return.";
+var DOSPERT_likelihood_10 = "Disagreeing with your father on a major issue.";
+var DOSPERT_likelihood_11 = "Betting a day’s income at a high stake poker game.";
+var DOSPERT_likelihood_12 = "Having an affair with a married man or woman.";
+var DOSPERT_likelihood_13 = "Forging somebody’s signature.";
+var DOSPERT_likelihood_14 = "Passing off somebody else’s work as your own.";
+var DOSPERT_likelihood_15 = "Going on a vacation in a third-world country without prearranged travel and hotel accommodations.";
+var DOSPERT_likelihood_16 = "Arguing with a friend about an issue on which he or she has a very different opinion.";
+var DOSPERT_likelihood_17 = "Going down a ski run that is beyond your ability or closed.";
+var DOSPERT_likelihood_18 = "Investing 5% of your annual income in a very speculative stock.";
+var DOSPERT_likelihood_19 = "Approaching your boss to ask for a raise.";
+var DOSPERT_likelihood_20 = "Illegally copying a piece of software.";
+var DOSPERT_likelihood_21 = "Going whitewater rafting during rapid water flows in the spring.";
+var DOSPERT_likelihood_22 = "Betting a day’s income on the outcome of a sporting event (e.g. baseball, soccer, or football).";
+var DOSPERT_likelihood_23 = "Telling a friend if his or her significant other has made a pass at you.";
+var DOSPERT_likelihood_24 = "Investing 5% of your annual income in a conservative stock.";
+var DOSPERT_likelihood_25 = "Shoplifting a small item (e.g. a lipstick or a pen).";
+var DOSPERT_likelihood_26 = "Wearing provocative or unconventional clothes on occasion.";
+var DOSPERT_likelihood_27 = "Engaging in unprotected sex.";
+var DOSPERT_likelihood_28 = "Stealing an additional TV cable connection off the one you pay for.";
+var DOSPERT_likelihood_29 = "Not wearing a seatbelt when being a passenger in the front seat.";
+var DOSPERT_likelihood_30 = "Investing 10% of your annual income in government bonds (treasury bills).";
+var DOSPERT_likelihood_31 = "Periodically engaging in a dangerous sport (e.g. mountain climbing or sky diving).";
+var DOSPERT_likelihood_32 = "Not wearing a helmet when riding a motorcycle.";
+var DOSPERT_likelihood_33 = "Gambling a week’s income at a casino.";
+var DOSPERT_likelihood_34 = "Taking a job that you enjoy over one that is prestigious but less enjoyable.";
+var DOSPERT_likelihood_35 = "Defending an unpopular issue that you believe in at a social occasion.";
+var DOSPERT_likelihood_36 = "Exposing yourself to the sun without using sunscreen.";
+var DOSPERT_likelihood_37 = "Trying out bungee jumping at least once.";
+var DOSPERT_likelihood_38 = "Piloting your own small plane, if you could.";
+var DOSPERT_likelihood_39 = "Walking home alone at night in a somewhat unsafe area of town.";
+var DOSPERT_likelihood_40 = "Regularly eating high cholesterol foods.";
 
 //Expected Benefits
-var SRTB_Benefit_1 = "The benefit of: <br> Oral sex";
-var SRTB_Benefit_2 = "The benefit of: <br> Casual sexual intercourse";
-var SRTB_Benefit_3 = "The benefit of: <br> Having sex with multiple partners";
-var SRTB_Benefit_4 = "The benefit of: <br> Dangerous masturbation (such as, auto-erotic suffixation) ";
-var SRTB_Benefit_5 = "The benefit of: <br> Anal sex without a condom";
-var SRTB_Benefit_6 = "The benefit of: <br> Sexual activity with multiple participants";
-var SRTB_Benefit_7 = "The benefit of: <br> Sexual activity involving violence which may lead to significant injury ";
-var SRTB_Benefit_8 = "The benefit of: <br> Sex under influence of substances (drugs/alcohol)";
-var SRTB_Benefit_9 = "The benefit of: <br> Sex with a new partner: <br> when his/her STD history is unknown and without using protection of any kind.";
-var SRTB_Benefit_10 = "The benefit of: <br> Sex with a new partner: <br> when his/her STD history is unknown, without using a condom, yet using birth control ";
-var SRTB_Benefit_11 = "The benefit of: <br> Sex with a new partner: <br> when you know he/she doesn't have history of STD and without using protection of any kind.";
-var SRTB_Benefit_12 = "The benefit of: <br> Sex with a new partner: <br> when you know he/she doesn't have history of STD,  without using a condom, yet using birth control";
-var SRTB_Benefit_13 = "The benefit of: <br> Uncommitted yet stable sexual relationship <br> when his/her STD history is unknown and without using protection of any kind.";
-var SRTB_Benefit_14 = "The benefit of: <br> Uncommitted yet stable sexual relationship <br> when his/her STD history is unknown, without using a condom, yet using birth control ";
-var SRTB_Benefit_15 = "The benefit of: <br> Uncommitted yet stable sexual relationship <br> when you know he/she doesn't have history of STD and without using protection of any kind.";
-var SRTB_Benefit_16 = "The benefit of: <br> Uncommitted yet stable sexual relationship <br> when you know he/she doesn't have history of STD,  without using a condom, yet using birth control";
+var DOSPERT_benefits_1 = "Admitting that your tastes are different from those of your friends.";
+var DOSPERT_benefits_2 = "Going camping in the wilderness, beyond the civilization of a campground.";
+var DOSPERT_benefits_3 = "Betting a day’s income at the horse races.";
+var DOSPERT_benefits_4 = "Buying an illegal drug for your own use.";
+var DOSPERT_benefits_5 = "Cheating on an exam.";
+var DOSPERT_benefits_6 = "Chasing a tornado or hurricane by car to take dramatic photos.";
+var DOSPERT_benefits_7 = "Investing 10% of your annual income in a moderate growth mutual fund.";
+var DOSPERT_benefits_8 = "Consuming five or more servings of alcohol in a single evening.";
+var DOSPERT_benefits_9 = "Cheating by a significant amount on your income tax return.";
+var DOSPERT_benefits_10 = "Disagreeing with your father on a major issue.";
+var DOSPERT_benefits_11 = "Betting a day’s income at a high stake poker game.";
+var DOSPERT_benefits_12 = "Having an affair with a married man or woman.";
+var DOSPERT_benefits_13 = "Forging somebody’s signature.";
+var DOSPERT_benefits_14 = "Passing off somebody else’s work as your own.";
+var DOSPERT_benefits_15 = "Going on a vacation in a third-world country without prearranged travel and hotel accommodations.";
+var DOSPERT_benefits_16 = "Arguing with a friend about an issue on which he or she has a very different opinion.";
+var DOSPERT_benefits_17 = "Going down a ski run that is beyond your ability or closed.";
+var DOSPERT_benefits_18 = "Investing 5% of your annual income in a very speculative stock.";
+var DOSPERT_benefits_19 = "Approaching your boss to ask for a raise.";
+var DOSPERT_benefits_20 = "Illegally copying a piece of software.";
+var DOSPERT_benefits_21 = "Going whitewater rafting during rapid water flows in the spring.";
+var DOSPERT_benefits_22 = "Betting a day’s income on the outcome of a sporting event (e.g. baseball, soccer, or football).";
+var DOSPERT_benefits_23 = "Telling a friend if his or her significant other has made a pass at you.";
+var DOSPERT_benefits_24 = "Investing 5% of your annual income in a conservative stock.";
+var DOSPERT_benefits_25 = "Shoplifting a small item (e.g. a lipstick or a pen).";
+var DOSPERT_benefits_26 = "Wearing provocative or unconventional clothes on occasion.";
+var DOSPERT_benefits_27 = "Engaging in unprotected sex.";
+var DOSPERT_benefits_28 = "Stealing an additional TV cable connection off the one you pay for.";
+var DOSPERT_benefits_29 = "Not wearing a seatbelt when being a passenger in the front seat.";
+var DOSPERT_benefits_30 = "Investing 10% of your annual income in government bonds (treasury bills).";
+var DOSPERT_benefits_31 = "Periodically engaging in a dangerous sport (e.g. mountain climbing or sky diving).";
+var DOSPERT_benefits_32 = "Not wearing a helmet when riding a motorcycle.";
+var DOSPERT_benefits_33 = "Gambling a week’s income at a casino.";
+var DOSPERT_benefits_34 = "Taking a job that you enjoy over one that is prestigious but less enjoyable.";
+var DOSPERT_benefits_35 = "Defending an unpopular issue that you believe in at a social occasion.";
+var DOSPERT_benefits_36 = "Exposing yourself to the sun without using sunscreen.";
+var DOSPERT_benefits_37 = "Trying out bungee jumping at least once.";
+var DOSPERT_benefits_38 = "Piloting your own small plane, if you could.";
+var DOSPERT_benefits_39 = "Walking home alone at night in a somewhat unsafe area of town.";
+var DOSPERT_benefits_40 = "Regularly eating high cholesterol foods.";
 
-//Frequency
-var SRTB_Frequency_1 = "What is your frequency for: <br> Oral sex";
-var SRTB_Frequency_2 = "What is your frequency for: <br> Casual sexual intercourse";
-var SRTB_Frequency_3 = "What is your frequency for: <br> Having sex with multiple partners";
-var SRTB_Frequency_4 = "What is your frequency for: <br> Dangerous masturbation (such as, auto-erotic suffixation) ";
-var SRTB_Frequency_5 = "What is your frequency for: <br> Anal sex without a condom";
-var SRTB_Frequency_6 = "What is your frequency for: <br> Sexual activity with multiple participants";
-var SRTB_Frequency_7 = "What is your frequency for: <br> Sexual activity involving violence which may lead to significant injury ";
-var SRTB_Frequency_8 = "What is your frequency for: <br> Sex under influence of substances (drugs/alcohol)";
-var SRTB_Frequency_9 = "What is your frequency for: <br> Sex with a new partner: <br> when his/her STD history is unknown and without using protection of any kind.";
-var SRTB_Frequency_10 = "What is your frequency for: <br> Sex with a new partner: <br> when his/her STD history is unknown, without using a condom, yet using birth control ";
-var SRTB_Frequency_11 = "What is your frequency for: <br> Sex with a new partner: <br> when you know he/she doesn't have history of STD and without using protection of any kind.";
-var SRTB_Frequency_12 = "What is your frequency for: <br> Sex with a new partner: <br> when you know he/she doesn't have history of STD,  without using a condom, yet using birth control";
-var SRTB_Frequency_13 = "What is your frequency for: <br> Uncommitted yet stable sexual relationship <br> when his/her STD history is unknown and without using protection of any kind.";
-var SRTB_Frequency_14 = "What is your frequency for: <br> Uncommitted yet stable sexual relationship <br> when his/her STD history is unknown, without using a condom, yet using birth control ";
-var SRTB_Frequency_15 = "What is your frequency for: <br> Uncommitted yet stable sexual relationship <br> when you know he/she doesn't have history of STD and without using protection of any kind.";
-var SRTB_Frequency_16 = "What is your frequency for: <br> Uncommitted yet stable sexual relationship <br> when you know he/she doesn't have history of STD,  without using a condom, yet using birth control";
 
 //SRTB Scale Change
 var srtb_change_1 = 'Your participation in this survey is anonymous and part of a research study. You may refuse to take part in the study or leave the study at any time. You may answer only part of the questions. For each of the following statements, please indicate the likelihood that you would engage in the described activity or behavior, if you were to find yourself in that situation. Provide a rating from "Extremely Unlikely" to "Extremely Likely". Please confirm th;at you understand this by selecting the number "1" below'

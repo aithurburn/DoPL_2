@@ -42,19 +42,19 @@
 
 
 
-    var pavloviaInfo;
-
-    /* init connection with pavlovia.org */
-    var pavlovia_init = {
-        type: jsPsychPavlovia,
-        command: "init",
-        // Store info received by Pavlovia init into the global variable `pavloviaInfo`
-        setPavloviaInfo: function(info) {
-            console.log(info);
-            pavloviaInfo = info;
-        }
-    };
-    timeline.push(pavlovia_init);
+    //var pavloviaInfo;
+    //
+    ///* init connection with pavlovia.org */
+    //var pavlovia_init = {
+    //    type: jsPsychPavlovia,
+    //    command: "init",
+    //    // Store info received by Pavlovia init into the global variable `pavloviaInfo`
+    //    setPavloviaInfo: function(info) {
+    //        console.log(info);
+    //        pavloviaInfo = info;
+    //    }
+    //};
+    //timeline.push(pavlovia_init);
 
 
 
@@ -154,436 +154,764 @@
         }],
     }
 
-    var srtbLikelihoodBlock = {
+    var DOSPERTRiskBlock = {
         timeline: [{
             type: jsPsychVisualAnalogScale,
-            stimulus: srtb_change_1,
+            stimulus: scale_change_1,
             choices: ["1"],
-            labels: optionsChange,
+            labels: scale_change_options,
             post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Likelihood_1,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbLikelihoodOptions,
+            stimulus: DOSPERT_Risk_1,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTRiskOptions,
             post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Likelihood_2,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbLikelihoodOptions,
+            stimulus: DOSPERT_Risk_2,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTRiskOptions,
             post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Likelihood_3,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbLikelihoodOptions,
+            stimulus: DOSPERT_Risk_3,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTRiskOptions,
             post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Likelihood_4,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbLikelihoodOptions,
-            post_trial_gap: 500,
+            stimulus: DOSPERT_Risk_4,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTRiskOptions,
+            post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Likelihood_5,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbLikelihoodOptions,
-            post_trial_gap: 500,
+            stimulus: DOSPERT_Risk_5,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTRiskOptions,
+            post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Likelihood_6,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbLikelihoodOptions,
-            post_trial_gap: 500,
+            stimulus: DOSPERT_Risk_6,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTRiskOptions,
+            post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Likelihood_7,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbLikelihoodOptions,
-            post_trial_gap: 500,
+            stimulus: DOSPERT_Risk_7,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTRiskOptions,
+            post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Likelihood_8,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbLikelihoodOptions,
-            post_trial_gap: 500,
+            stimulus: DOSPERT_Risk_8,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTRiskOptions,
+            post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Likelihood_9,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbLikelihoodOptions,
-            post_trial_gap: 500,
+            stimulus: DOSPERT_Risk_9,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTRiskOptions,
+            post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Likelihood_10,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbLikelihoodOptions,
-            post_trial_gap: 500,
+            stimulus: DOSPERT_Risk_10,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTRiskOptions,
+            post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Likelihood_11,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbLikelihoodOptions,
-            post_trial_gap: 500,
+            stimulus: DOSPERT_Risk_11,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTRiskOptions,
+            post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Likelihood_12,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbLikelihoodOptions,
-            post_trial_gap: 500,
+            stimulus: DOSPERT_Risk_12,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTRiskOptions,
+            post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Likelihood_13,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbLikelihoodOptions,
-            post_trial_gap: 500,
+            stimulus: DOSPERT_Risk_13,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTRiskOptions,
+            post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Likelihood_14,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbLikelihoodOptions,
-            post_trial_gap: 500,
+            stimulus: DOSPERT_Risk_14,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTRiskOptions,
+            post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Likelihood_15,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbLikelihoodOptions,
-            post_trial_gap: 500,
+            stimulus: DOSPERT_Risk_15,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTRiskOptions,
+            post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Likelihood_16,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbLikelihoodOptions,
-            post_trial_gap: 500,
+            stimulus: DOSPERT_Risk_16,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTRiskOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_Risk_17,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTRiskOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_Risk_18,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTRiskOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_Risk_19,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTRiskOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_Risk_20,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTRiskOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_Risk_21,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTRiskOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_Risk_22,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTRiskOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_Risk_23,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTRiskOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_Risk_24,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTRiskOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_Risk_25,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTRiskOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_Risk_26,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTRiskOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_Risk_27,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTRiskOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_Risk_28,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTRiskOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_Risk_29,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTRiskOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_Risk_30,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTRiskOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_Risk_31,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTRiskOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_Risk_32,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTRiskOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_Risk_33,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTRiskOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_Risk_34,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTRiskOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_Risk_35,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTRiskOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_Risk_36,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTRiskOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_Risk_37,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTRiskOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_Risk_38,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTRiskOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_Risk_39,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTRiskOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_Risk_40,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTRiskOptions,
+            post_trial_gap: 500
         }, ],
     }
 
-    var srtbRiskBlock = {
+    var DOSPERTLikelihoodBlock = {
         timeline: [{
             type: jsPsychVisualAnalogScale,
-            stimulus: srtb_change_2,
+            stimulus: scale_change_2,
             choices: ["2"],
-            labels: optionsChange,
+            labels: scale_change_options,
             post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Risk_1,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbRiskOptions,
+            stimulus: DOSPERT_likelihood_1,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTLikelihoodOptions,
             post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Risk_2,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbRiskOptions,
+            stimulus: DOSPERT_likelihood_2,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTLikelihoodOptions,
             post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Risk_3,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbRiskOptions,
+            stimulus: DOSPERT_likelihood_3,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTLikelihoodOptions,
             post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Risk_4,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbRiskOptions,
-            post_trial_gap: 500,
+            stimulus: DOSPERT_likelihood_4,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTLikelihoodOptions,
+            post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Risk_5,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbRiskOptions,
-            post_trial_gap: 500,
+            stimulus: DOSPERT_likelihood_5,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTLikelihoodOptions,
+            post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Risk_6,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbRiskOptions,
-            post_trial_gap: 500,
+            stimulus: DOSPERT_likelihood_6,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTLikelihoodOptions,
+            post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Risk_7,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbRiskOptions,
-            post_trial_gap: 500,
+            stimulus: DOSPERT_likelihood_7,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTLikelihoodOptions,
+            post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Risk_8,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbRiskOptions,
-            post_trial_gap: 500,
+            stimulus: DOSPERT_likelihood_8,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTLikelihoodOptions,
+            post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Risk_9,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbRiskOptions,
-            post_trial_gap: 500,
+            stimulus: DOSPERT_likelihood_9,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTLikelihoodOptions,
+            post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Risk_10,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbRiskOptions,
-            post_trial_gap: 500,
+            stimulus: DOSPERT_likelihood_10,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTLikelihoodOptions,
+            post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Risk_11,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbRiskOptions,
-            post_trial_gap: 500,
+            stimulus: DOSPERT_likelihood_11,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTLikelihoodOptions,
+            post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Risk_12,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbRiskOptions,
-            post_trial_gap: 500,
+            stimulus: DOSPERT_likelihood_12,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTLikelihoodOptions,
+            post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Risk_13,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbRiskOptions,
-            post_trial_gap: 500,
+            stimulus: DOSPERT_likelihood_13,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTLikelihoodOptions,
+            post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Risk_14,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbRiskOptions,
-            post_trial_gap: 500,
+            stimulus: DOSPERT_likelihood_14,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTLikelihoodOptions,
+            post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Risk_15,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbRiskOptions,
-            post_trial_gap: 500,
+            stimulus: DOSPERT_likelihood_15,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTLikelihoodOptions,
+            post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Risk_16,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbRiskOptions,
-            post_trial_gap: 500,
+            stimulus: DOSPERT_likelihood_16,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTLikelihoodOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_likelihood_17,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTLikelihoodOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_likelihood_18,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTLikelihoodOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_likelihood_19,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTLikelihoodOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_likelihood_20,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTLikelihoodOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_likelihood_21,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTLikelihoodOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_likelihood_22,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTLikelihoodOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_likelihood_23,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTLikelihoodOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_likelihood_24,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTLikelihoodOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_likelihood_25,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTLikelihoodOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_likelihood_26,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTLikelihoodOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_likelihood_27,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTLikelihoodOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_likelihood_28,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTLikelihoodOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_likelihood_29,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTLikelihoodOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_likelihood_30,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTLikelihoodOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_likelihood_31,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTLikelihoodOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_likelihood_32,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTLikelihoodOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_likelihood_33,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTLikelihoodOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_likelihood_34,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTLikelihoodOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_likelihood_35,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTLikelihoodOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_likelihood_36,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTLikelihoodOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_likelihood_37,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTLikelihoodOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_likelihood_38,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTLikelihoodOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_likelihood_39,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTLikelihoodOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_likelihood_40,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTLikelihoodOptions,
+            post_trial_gap: 500
         }, ],
     }
 
-    var srtbFrequencyBlock = {
+    var DOSPERTBenefitsBlock = {
         timeline: [{
             type: jsPsychVisualAnalogScale,
-            stimulus: srtb_change_3,
+            stimulus: scale_change_3,
             choices: ["3"],
-            labels: optionsChange,
+            labels: scale_change_options,
             post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Frequency_1,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbFrequencyOptions,
+            stimulus: DOSPERT_benefits_1,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTBenefitsOptions,
             post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Frequency_2,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbFrequencyOptions,
+            stimulus: DOSPERT_benefits_2,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTBenefitsOptions,
             post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Frequency_3,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbFrequencyOptions,
+            stimulus: DOSPERT_benefits_3,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTBenefitsOptions,
             post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Frequency_4,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbFrequencyOptions,
-            post_trial_gap: 500,
+            stimulus: DOSPERT_benefits_4,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTBenefitsOptions,
+            post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Frequency_5,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbFrequencyOptions,
-            post_trial_gap: 500,
+            stimulus: DOSPERT_benefits_5,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTBenefitsOptions,
+            post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Frequency_6,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbFrequencyOptions,
-            post_trial_gap: 500,
+            stimulus: DOSPERT_benefits_6,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTBenefitsOptions,
+            post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Frequency_7,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbFrequencyOptions,
-            post_trial_gap: 500,
+            stimulus: DOSPERT_benefits_7,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTBenefitsOptions,
+            post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Frequency_8,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbFrequencyOptions,
-            post_trial_gap: 500,
+            stimulus: DOSPERT_benefits_8,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTBenefitsOptions,
+            post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Frequency_9,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbFrequencyOptions,
-            post_trial_gap: 500,
+            stimulus: DOSPERT_benefits_9,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTBenefitsOptions,
+            post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Frequency_10,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbFrequencyOptions,
-            post_trial_gap: 500,
+            stimulus: DOSPERT_benefits_10,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTBenefitsOptions,
+            post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Frequency_11,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbFrequencyOptions,
-            post_trial_gap: 500,
+            stimulus: DOSPERT_benefits_11,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTBenefitsOptions,
+            post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Frequency_12,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbFrequencyOptions,
-            post_trial_gap: 500,
+            stimulus: DOSPERT_benefits_12,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTBenefitsOptions,
+            post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Frequency_13,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbFrequencyOptions,
-            post_trial_gap: 500,
+            stimulus: DOSPERT_benefits_13,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTBenefitsOptions,
+            post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Frequency_14,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbFrequencyOptions,
-            post_trial_gap: 500,
+            stimulus: DOSPERT_benefits_14,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTBenefitsOptions,
+            post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Frequency_15,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbFrequencyOptions,
-            post_trial_gap: 500,
+            stimulus: DOSPERT_benefits_15,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTBenefitsOptions,
+            post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Frequency_16,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbFrequencyOptions,
-            post_trial_gap: 500,
+            stimulus: DOSPERT_benefits_16,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTBenefitsOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_benefits_17,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTBenefitsOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_benefits_18,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTBenefitsOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_benefits_19,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTBenefitsOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_benefits_20,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTBenefitsOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_benefits_21,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTBenefitsOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_benefits_22,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTBenefitsOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_benefits_23,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTBenefitsOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_benefits_24,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTBenefitsOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_benefits_25,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTBenefitsOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_benefits_26,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTBenefitsOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_benefits_27,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTBenefitsOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_benefits_28,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTBenefitsOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_benefits_29,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTBenefitsOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_benefits_30,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTBenefitsOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_benefits_31,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTBenefitsOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_benefits_32,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTBenefitsOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_benefits_33,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTBenefitsOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_benefits_34,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTBenefitsOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_benefits_35,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTBenefitsOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_benefits_36,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTBenefitsOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_benefits_37,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTBenefitsOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_benefits_38,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTBenefitsOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_benefits_39,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTBenefitsOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DOSPERT_benefits_40,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: DOSPERTBenefitsOptions,
+            post_trial_gap: 500
         }, ],
     }
 
-    var srtbBenefitBlock = {
-        timeline: [{
-            type: jsPsychVisualAnalogScale,
-            stimulus: srtb_change_4,
-            choices: ["4"],
-            labels: optionsChange,
-            post_trial_gap: 500
-        }, {
-            type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Benefit_1,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbBenefitOptions,
-            post_trial_gap: 500
-        }, {
-            type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Benefit_2,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbBenefitOptions,
-            post_trial_gap: 500
-        }, {
-            type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Benefit_3,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbBenefitOptions,
-            post_trial_gap: 500
-        }, {
-            type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Benefit_4,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbBenefitOptions,
-            post_trial_gap: 500,
-        }, {
-            type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Benefit_5,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbBenefitOptions,
-            post_trial_gap: 500,
-        }, {
-            type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Benefit_6,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbBenefitOptions,
-            post_trial_gap: 500,
-        }, {
-            type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Benefit_7,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbBenefitOptions,
-            post_trial_gap: 500,
-        }, {
-            type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Benefit_8,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbBenefitOptions,
-            post_trial_gap: 500,
-        }, {
-            type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Benefit_9,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbBenefitOptions,
-            post_trial_gap: 500,
-        }, {
-            type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Benefit_10,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbBenefitOptions,
-            post_trial_gap: 500,
-        }, {
-            type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Benefit_11,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbBenefitOptions,
-            post_trial_gap: 500,
-        }, {
-            type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Benefit_12,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbBenefitOptions,
-            post_trial_gap: 500,
-        }, {
-            type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Benefit_13,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbBenefitOptions,
-            post_trial_gap: 500,
-        }, {
-            type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Benefit_14,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbBenefitOptions,
-            post_trial_gap: 500,
-        }, {
-            type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Benefit_15,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbBenefitOptions,
-            post_trial_gap: 500,
-        }, {
-            type: jsPsychVisualAnalogScale,
-            stimulus: SRTB_Benefit_16,
-            choices: ["1", "2", "3", "4", "5", "6", "7"],
-            labels: srtbBenefitOptions,
-            post_trial_gap: 500,
-        }],
-    }
+
 
     var doplBlock = {
         timeline: [{
             type: jsPsychVisualAnalogScale,
-            stimulus: scaleChangeStimulusOne,
+            stimulus: scale_change_4,
             choices: ["1"],
-            labels: optionsChange,
+            labels: scale_change_options,
             post_trial_gap: 500,
         }, {
             type: jsPsychVisualAnalogScale,
@@ -774,70 +1102,13 @@
         }]
     }
 
-    var soiBlock = {
-        timeline: [{
-            type: jsPsychVisualAnalogScale,
-            stimulus: SOI_1,
-            choices: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
-            labels: soiOptionsa,
-            post_trial_gap: 500
-        }, {
-            type: jsPsychVisualAnalogScale,
-            stimulus: SOI_2,
-            choices: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
-            labels: soiOptionsa,
-            post_trial_gap: 500
-        }, {
-            type: jsPsychVisualAnalogScale,
-            stimulus: SOI_3,
-            choices: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
-            labels: soiOptionsa,
-            post_trial_gap: 500
-        }, {
-            type: jsPsychVisualAnalogScale,
-            stimulus: SOI_4,
-            choices: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
-            labels: soiOptionsb,
-            post_trial_gap: 500
-        }, {
-            type: jsPsychVisualAnalogScale,
-            stimulus: SOI_5,
-            choices: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
-            labels: soiOptionsb,
-            post_trial_gap: 500
-        }, {
-            type: jsPsychVisualAnalogScale,
-            stimulus: SOI_6,
-            choices: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
-            labels: soiOptionsb,
-            post_trial_gap: 500
-        }, {
-            type: jsPsychVisualAnalogScale,
-            stimulus: SOI_7,
-            choices: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
-            labels: soiOptionsc,
-            post_trial_gap: 500
-        }, {
-            type: jsPsychVisualAnalogScale,
-            stimulus: SOI_8,
-            choices: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
-            labels: soiOptionsc,
-            post_trial_gap: 500
-        }, {
-            type: jsPsychVisualAnalogScale,
-            stimulus: SOI_9,
-            choices: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
-            labels: soiOptionsc,
-            post_trial_gap: 500
-        }]
-    }
 
     var narcissismBlock = {
         timeline: [{
             type: jsPsychVisualAnalogScale,
-            stimulus: srtb_change_4,
+            stimulus: scale_change_5,
             choices: ["4"],
-            labels: optionsChange,
+            labels: scale_change_options,
             post_trial_gap: 500
         }, {
             type: jsPsychVisualAnalogScale,
@@ -1021,7 +1292,7 @@
     };
 
 
-    var test_array = [srtbLikelihoodBlock, srtbBenefitBlock, srtbRiskBlock, srtbFrequencyBlock, doplBlock, soiBlock, narcissismBlock];
+    var test_array = [DOSPERTRiskBlock, DOSPERTLikelihoodBlock, DOSPERTBenefitsBlock, doplBlock, narcissismBlock];
     //var test_array = [];
 
     var test_procedure = jsPsych.randomization.shuffle(test_array);
@@ -1038,11 +1309,11 @@
 
 
 
-    var pavlovia_finish = {
-        type: jsPsychPavlovia,
-        command: "finish"
-    };
-    timeline.push(pavlovia_finish);
+    //var pavlovia_finish = {
+    //    type: jsPsychPavlovia,
+    //    command: "finish"
+    //};
+    //timeline.push(pavlovia_finish);
 
     timeline.push({
         type: jsPsychFullscreen,
