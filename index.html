@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+    <link rel="stylesheet" type="text/css" href="jspsych-7/css/jspsych.css" />
+    <script type="text/javascript" src="jspsych-7/plugins/jspsychVisualContinueButton.js"></script>
+    <script type="text/javascript" src="jspsych-7/plugins/plugin-fullscreen.js"></script>
+    <script type="text/javascript" src="jspsych-7/plugins/plugin-Age.js"></script>
+    <script type="text/javascript" src="jspsych-7/plugins/plugin-visual-analog-scale.js"></script>
+    <script type="text/javascript" src="jspsych-7/plugins/plugin-html-button-and-keyboard-response.js"></script>
+    <script type="text/javascript" src="jspsych-7/plugins/plugin-begin-experiment.js"></script>
+    <script type="text/javascript" src="jspsych-7/plugins/plugin-consent-form.js"></script>
+    <script type="text/javascript" src="jspsych-7/plugins/plugin-debrief.js"></script>
+    <script type="text/javascript" src="jspsych-7/configuration/experimentStimuli.js"></script>
+    <script type="text/javascript" src="jspsych-7/configuration/experimentOptions.js"></script>
+    <script type="text/javascript" src="jspsych-7/configuration/vignettes_Dominance.js"></script>
+    <script type="text/javascript" src="jspsych-7/configuration/vignettes_Leadership.js"></script>
+    <script type="text/javascript" src="jspsych-7/configuration/vignettes_Prestige.js"></script>
+    <script type="text/javascript" src="jspsych-7/jquery-3.6.0.js"></script>
+    <script type="text/javascript" src="./jspsych-7/plugins/jspsych-pavlovia-2020.4.js"></script>
+    <script type="text/javascript " src="./jspsych-7/jspsych.js "></script>
+    <style>
+
+    </style>
+</head>
+
+
+<body></body>
+<script>
+    var timeline = [];
+    var jsPsych = initJsPsych({
+        on_finish: function() {
+            document.body.innerHTML =
+                "<center id='finished'>Please wait.You will be redirected back to Prolific in a few moments. < /center>";
+            setTimeout(function() {
+                location.href =
+                    "https:app.prolific.co/submissions/complete?cc=5D169A15";
+            }, 10000);
+        }
+    });
+
+
+
+    var pavloviaInfo;
+
+    /* init connection with pavlovia.org */
+    var pavlovia_init = {
+        type: jsPsychPavlovia,
+        command: "init",
+        // Store info received by Pavlovia init into the global variable `pavloviaInfo`
+        setPavloviaInfo: function(info) {
+            console.log(info);
+            pavloviaInfo = info;
+        }
+    };
+    timeline.push(pavlovia_init);
+
+
+
+
+
+    var subject_id = jsPsych.data.getURLVariable("PROLIFIC_PID");
+    var study_id = jsPsych.data.getURLVariable("STUDY_ID");
+    var session_id = jsPsych.data.getURLVariable("SESSION_ID");
+
+    jsPsych.data.addProperties({
+        subject_id: subject_id,
+        study_id: study_id,
+        session_id: session_id,
+        contactNumber: contactNumber
+    });
+    timeline.push({
+        type: jsPsychFullscreen,
+        fullscreen_mode: true
+    })
+    var welcome = {
+        type: jsPsychBeginExperiment,
+        stimulus: "Welcome to the experiment. Press any key or press 'Continue' to begin.",
+        labels: ["Continue"],
+        prompt: "",
+        ineligibleMessage: "",
+        post_trial_gap: 500,
+    };
+
+    var contactNumber = (Math.floor((Math.random() * ((9999999 - 1000000) + 1))) + 1000000);
+
+
+
+    var consentForm = {
+        type: jsPsychConsentForm,
+        stimulus: consentStimulus,
+        choices: ["y", "n"],
+        post_trial_gap: 500,
+        labels: ["Yes", "No"],
+        button_number: [1, 2],
+        prompt: "",
+        ineligibleMessage: "You have chosen not to participate in this experiment. Please have a nice day. You may now close this window. ",
+    };
+
+    var instructions = {
+        type: jsPsychBeginExperiment,
+        stimulus: instructionsStimulus,
+        post_trial_gap: 500,
+        labels: ["Begin Experiment"],
+        button_number: [1],
+        prompt: "",
+        ineligibleMessage: "You have chosen not to participate in this experiment. Please have a nice day. You may now close this window. ",
+        on_finish: function(data) {
+            if (data.key_press == "n") {
+                document.body.innerHTML =
+                    "<center id = notParticipate'> You have chosen not to participate in this experiment. Please have a nice day. You may now close this window.</center>";
+            }
+        }
+    }
+
+    var demographicBlock = {
+        timeline: [{
+            type: jsPsychAge,
+            questions: [{
+                prompt: ageStimulus,
+                name: "Age",
+                minAge: 18,
+                maxAge: 89
+            }],
+            post_trial_gap: 500,
+            button_label: "Next",
+            minAge: 18,
+            maxAge: 89
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: genderStimulus,
+            choices: ["1", "2", "3", "4", "5", "6"],
+            labels: genderOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: ethnicityStimulus,
+            choices: ["1", "2", "3", "4", "5", "6", "7", "8"],
+            labels: ethnicityOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: ethnicOriginStimulus,
+            choices: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
+            labels: ethnicOriginOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: educationStimulus,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: educationOptions,
+            post_trial_gap: 500,
+        }],
+    }
+
+    var srtbLikelihoodBlock = {
+        timeline: [{
+            type: jsPsychVisualAnalogScale,
+            stimulus: srtb_change_1,
+            choices: ["1"],
+            labels: optionsChange,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Likelihood_1,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbLikelihoodOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Likelihood_2,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbLikelihoodOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Likelihood_3,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbLikelihoodOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Likelihood_4,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbLikelihoodOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Likelihood_5,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbLikelihoodOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Likelihood_6,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbLikelihoodOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Likelihood_7,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbLikelihoodOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Likelihood_8,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbLikelihoodOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Likelihood_9,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbLikelihoodOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Likelihood_10,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbLikelihoodOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Likelihood_11,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbLikelihoodOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Likelihood_12,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbLikelihoodOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Likelihood_13,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbLikelihoodOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Likelihood_14,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbLikelihoodOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Likelihood_15,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbLikelihoodOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Likelihood_16,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbLikelihoodOptions,
+            post_trial_gap: 500,
+        }, ],
+    }
+
+    var srtbRiskBlock = {
+        timeline: [{
+            type: jsPsychVisualAnalogScale,
+            stimulus: srtb_change_2,
+            choices: ["2"],
+            labels: optionsChange,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Risk_1,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbRiskOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Risk_2,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbRiskOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Risk_3,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbRiskOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Risk_4,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbRiskOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Risk_5,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbRiskOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Risk_6,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbRiskOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Risk_7,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbRiskOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Risk_8,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbRiskOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Risk_9,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbRiskOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Risk_10,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbRiskOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Risk_11,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbRiskOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Risk_12,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbRiskOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Risk_13,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbRiskOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Risk_14,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbRiskOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Risk_15,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbRiskOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Risk_16,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbRiskOptions,
+            post_trial_gap: 500,
+        }, ],
+    }
+
+    var srtbFrequencyBlock = {
+        timeline: [{
+            type: jsPsychVisualAnalogScale,
+            stimulus: srtb_change_3,
+            choices: ["3"],
+            labels: optionsChange,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Frequency_1,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbFrequencyOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Frequency_2,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbFrequencyOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Frequency_3,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbFrequencyOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Frequency_4,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbFrequencyOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Frequency_5,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbFrequencyOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Frequency_6,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbFrequencyOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Frequency_7,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbFrequencyOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Frequency_8,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbFrequencyOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Frequency_9,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbFrequencyOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Frequency_10,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbFrequencyOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Frequency_11,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbFrequencyOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Frequency_12,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbFrequencyOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Frequency_13,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbFrequencyOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Frequency_14,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbFrequencyOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Frequency_15,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbFrequencyOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Frequency_16,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbFrequencyOptions,
+            post_trial_gap: 500,
+        }, ],
+    }
+
+    var srtbBenefitBlock = {
+        timeline: [{
+            type: jsPsychVisualAnalogScale,
+            stimulus: srtb_change_4,
+            choices: ["4"],
+            labels: optionsChange,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Benefit_1,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbBenefitOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Benefit_2,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbBenefitOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Benefit_3,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbBenefitOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Benefit_4,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbBenefitOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Benefit_5,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbBenefitOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Benefit_6,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbBenefitOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Benefit_7,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbBenefitOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Benefit_8,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbBenefitOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Benefit_9,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbBenefitOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Benefit_10,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbBenefitOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Benefit_11,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbBenefitOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Benefit_12,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbBenefitOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Benefit_13,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbBenefitOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Benefit_14,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbBenefitOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Benefit_15,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbBenefitOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SRTB_Benefit_16,
+            choices: ["1", "2", "3", "4", "5", "6", "7"],
+            labels: srtbBenefitOptions,
+            post_trial_gap: 500,
+        }],
+    }
+
+    var doplBlock = {
+        timeline: [{
+            type: jsPsychVisualAnalogScale,
+            stimulus: scaleChangeStimulusOne,
+            choices: ["1"],
+            labels: optionsChange,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DoPL_1,
+            choices: ["1", "2", "3", "4", "5", "6"],
+            labels: doplOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DoPL_2,
+            choices: ["1", "2", "3", "4", "5", "6"],
+            labels: doplOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DoPL_3,
+            choices: ["1", "2", "3", "4", "5", "6"],
+            labels: doplOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DoPL_4,
+            choices: ["1", "2", "3", "4", "5", "6"],
+            labels: doplOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DoPL_5,
+            choices: ["1", "2", "3", "4", "5", "6"],
+            labels: doplOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DoPL_6,
+            choices: ["1", "2", "3", "4", "5", "6"],
+            labels: doplOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DoPL_7,
+            choices: ["1", "2", "3", "4", "5", "6"],
+            labels: doplOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DoPL_8,
+            choices: ["1", "2", "3", "4", "5", "6"],
+            labels: doplOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DoPL_9,
+            choices: ["1", "2", "3", "4", "5", "6"],
+            labels: doplOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DoPL_10,
+            choices: ["1", "2", "3", "4", "5", "6"],
+            labels: doplOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DoPL_11,
+            choices: ["1", "2", "3", "4", "5", "6"],
+            labels: doplOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DoPL_12,
+            choices: ["1", "2", "3", "4", "5", "6"],
+            labels: doplOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DoPL_13,
+            choices: ["1", "2", "3", "4", "5", "6"],
+            labels: doplOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DoPL_14,
+            choices: ["1", "2", "3", "4", "5", "6"],
+            labels: doplOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DoPL_15,
+            choices: ["1", "2", "3", "4", "5", "6"],
+            labels: doplOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: DoPL_16,
+            choices: ["1", "2", "3", "4", "5", "6"],
+            labels: doplOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: UMS_1,
+            choices: ["1", "2", "3", "4", "5", "6"],
+            labels: umsOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: UMS_2,
+            choices: ["1", "2", "3", "4", "5", "6"],
+            labels: umsOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: UMS_3,
+            choices: ["1", "2", "3", "4", "5", "6"],
+            labels: umsOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: UMS_4,
+            choices: ["1", "2", "3", "4", "5", "6"],
+            labels: umsOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: UMS_5,
+            choices: ["1", "2", "3", "4", "5", "6"],
+            labels: umsOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: UMS_6,
+            choices: ["1", "2", "3", "4", "5", "6"],
+            labels: umsOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: UMS_7,
+            choices: ["1", "2", "3", "4", "5", "6"],
+            labels: umsOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: UMS_8,
+            choices: ["1", "2", "3", "4", "5", "6"],
+            labels: umsOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: UMS_9,
+            choices: ["1", "2", "3", "4", "5", "6"],
+            labels: umsOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: UMS_10,
+            choices: ["1", "2", "3", "4", "5", "6"],
+            labels: umsOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: UMS_11,
+            choices: ["1", "2", "3", "4", "5", "6"],
+            labels: umsOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: UMS_12,
+            choices: ["1", "2", "3", "4", "5", "6"],
+            labels: umsOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: UMS_13,
+            choices: ["1", "2", "3", "4", "5", "6"],
+            labels: umsOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: UMS_14,
+            choices: ["1", "2", "3", "4", "5", "6"],
+            labels: umsOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: UMS_15,
+            choices: ["1", "2", "3", "4", "5", "6"],
+            labels: umsOptions,
+            post_trial_gap: 500,
+        }]
+    }
+
+    var soiBlock = {
+        timeline: [{
+            type: jsPsychVisualAnalogScale,
+            stimulus: SOI_1,
+            choices: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
+            labels: soiOptionsa,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SOI_2,
+            choices: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
+            labels: soiOptionsa,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SOI_3,
+            choices: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
+            labels: soiOptionsa,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SOI_4,
+            choices: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
+            labels: soiOptionsb,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SOI_5,
+            choices: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
+            labels: soiOptionsb,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SOI_6,
+            choices: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
+            labels: soiOptionsb,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SOI_7,
+            choices: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
+            labels: soiOptionsc,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SOI_8,
+            choices: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
+            labels: soiOptionsc,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: SOI_9,
+            choices: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
+            labels: soiOptionsc,
+            post_trial_gap: 500
+        }]
+    }
+
+    var narcissismBlock = {
+        timeline: [{
+            type: jsPsychVisualAnalogScale,
+            stimulus: srtb_change_4,
+            choices: ["4"],
+            labels: optionsChange,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: PNI_1,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: pniOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: PNI_2,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: pniOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: PNI_3,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: pniOptions,
+            post_trial_gap: 500
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: PNI_4,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: pniOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: PNI_5,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: pniOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: PNI_6,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: pniOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: PNI_7,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: pniOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: PNI_8,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: pniOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: PNI_9,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: pniOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: PNI_10,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: pniOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: PNI_11,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: pniOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: PNI_12,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: pniOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: PNI_13,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: pniOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: PNI_14,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: pniOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: PNI_15,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: pniOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: PNI_16,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: pniOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: PNI_17,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: pniOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: PNI_18,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: pniOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: PNI_19,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: pniOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: PNI_20,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: pniOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: PNI_21,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: pniOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: PNI_22,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: pniOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: PNI_23,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: pniOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: PNI_24,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: pniOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: PNI_25,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: pniOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: PNI_26,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: pniOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: PNI_27,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: pniOptions,
+            post_trial_gap: 500,
+        }, {
+            type: jsPsychVisualAnalogScale,
+            stimulus: PNI_28,
+            choices: ["1", "2", "3", "4", "5"],
+            labels: pniOptions,
+            post_trial_gap: 500,
+        }, ],
+    }
+
+    var debriefBlock = {
+        type: jsPsychDebrief,
+        stimulus: debriefStimulus,
+        labels: ["Continue"],
+        choices: ["y", "n"],
+        prompt: "",
+        ineligibleMessage: "",
+        post_trial_gap: 500,
+    };
+
+
+    var test_array = [srtbLikelihoodBlock, srtbBenefitBlock, srtbRiskBlock, srtbFrequencyBlock, doplBlock, soiBlock, narcissismBlock];
+    //var test_array = [];
+
+    var test_procedure = jsPsych.randomization.shuffle(test_array);
+
+    timeline.push(welcome);
+    timeline.push(consentForm);
+    timeline.push(instructions);
+    timeline.push(demographicBlock);
+    timeline = timeline.concat(test_procedure);
+    timeline.push(debriefBlock);
+
+
+
+
+
+
+    var pavlovia_finish = {
+        type: jsPsychPavlovia,
+        command: "finish"
+    };
+    timeline.push(pavlovia_finish);
+
+    timeline.push({
+        type: jsPsychFullscreen,
+        fullscreen_mode: false,
+    })
+
+    jsPsych.run(timeline);
+</script>
+
+</html>

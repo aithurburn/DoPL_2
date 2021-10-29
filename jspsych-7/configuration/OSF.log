@@ -1,0 +1,101 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.7) (preloaded format=pdflatex 2021.8.9)  9 AUG 2021 13:05
+entering extended mode
+**c:/Users/s1932788/OneDrive/Documents/1_UoE/Python/Experiment_2_Javascript/Experiment_2_Javascript/Experiment_2_Javascript/jspsych-6.3.1/configuration/OSF.tex
+(c:/Users/s1932788/OneDrive/Documents/1_UoE/Python/Experiment_2_Javascript/Experiment_2_Javascript/Experiment_2_Javascript/jspsych-6.3.1/configuration/OSF.tex
+LaTeX2e <2021-06-01> patch level 1
+L3 programming layer <2021-07-12> (C:\Users\s1932788\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2021/02/12 v1.4n Standard LaTeX document class
+(C:\Users\s1932788\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
+File: size10.clo 2021/02/12 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count182
+\c@section=\count183
+\c@subsection=\count184
+\c@subsubsection=\count185
+\c@paragraph=\count186
+\c@subparagraph=\count187
+\c@figure=\count188
+\c@table=\count189
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen138
+) (C:\Users\s1932788\AppData\Local\Programs\MiKTeX\tex/latex/enumitem\enumitem.sty
+Package: enumitem 2019/06/20 v3.9 Customized lists
+\enitkv@toks@=\toks16
+\labelindent=\skip49
+\enit@outerparindent=\dimen139
+\enit@toks=\toks17
+\enit@inbox=\box50
+\enit@count@id=\count190
+\enitdp@description=\count191
+) (C:\Users\s1932788\AppData\Local\Programs\MiKTeX\tex/latex/lipsum\lipsum.sty (C:\Users\s1932788\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/l3keys2e\l3keys2e.sty (C:\Users\s1932788\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.sty
+Package: expl3 2021-07-12 L3 programming layer (loader) 
+ (C:\Users\s1932788\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+File: l3backend-pdftex.def 2021-07-12 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count192
+\l__pdf_internal_box=\box51
+))
+Package: l3keys2e 2021-06-18 LaTeX2e option processing using LaTeX3 keys
+)
+Package: lipsum 2021-08-01 v2.5 150 paragraphs of Lorem Ipsum dummy text
+\g__lipsum_par_int=\count193
+\l__lipsum_a_int=\count194
+\l__lipsum_b_int=\count195
+ (C:\Users\s1932788\AppData\Local\Programs\MiKTeX\tex/latex/lipsum\lipsum.ltd.tex)) (C:\Users\s1932788\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
+Package: babel 2021/07/22 3.63 The Babel package
+ (C:\Users\s1932788\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.def
+File: babel.def 2021/07/22 3.63 Babel common definitions
+\babel@savecnt=\count196
+\U@D=\dimen140
+\l@unhyphenated=\language79
+ (C:\Users\s1932788\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
+\bbl@readstream=\read2
+)
+\bbl@dirlevel=\count197
+
+*************************************
+* Local config file bblopts.cfg used
+*
+(C:\Users\s1932788\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.cfg
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of babel
+)
+Package babel Info: You haven't specified a language. I'll use 'nil'
+(babel)             as the main language. Reported on input line 1088.
+ (C:\Users\s1932788\AppData\Local\Programs\MiKTeX\tex/generic/babel\nil.ldf
+Language: nil 2021/07/22 3.63 Nil language
+\l@nil=\language80
+)) (OSF.aux)
+\openout1 = `OSF.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+ [1
+
+{C:/Users/s1932788/AppData/Local/MiKTeX/pdftex/config/pdftex.map}] (OSF.aux) ) 
+Here is how much of TeX's memory you used:
+ 2053 strings out of 478870
+ 39658 string characters out of 2847415
+ 434566 words of memory out of 3000000
+ 20015 multiletter control sequences out of 15000+600000
+ 403430 words of font info for 27 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 70i,5n,81p,383b,132s stack positions out of 5000i,500n,10000p,200000b,80000s
+<C:/Users/s1932788/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb>
+Output written on OSF.pdf (1 page, 13815 bytes).
+PDF statistics:
+ 11 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

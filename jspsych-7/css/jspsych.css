@@ -1,0 +1,608 @@
+/*
+ * CSS for jsPsych experiments.
+ *
+ * This stylesheet provides minimal styling to make jsPsych
+ * experiments look polished without any additional styles.
+ */
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700);
+
+/* Container holding jsPsych content */
+
+button {
+    display: inline-block;
+    padding: 6px 12px;
+    margin: 0px;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'Open Sans', 'Arial', sans-serif;
+    cursor: pointer;
+    line-height: 1.4;
+    text-align: center;
+    white-space: normal;
+    vertical-align: middle;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+.jspsych-display-element:focus {
+    outline: none;
+    float: center;
+}
+
+.jspsych-content-wrapper {
+    display: flex;
+    margin: auto;
+    flex: 1 1 100%;
+    width: 80%;
+}
+
+.jspsych-content {
+    max-width: 80%;
+    /* this is mainly an IE 10-11 fix */
+    text-align: center;
+    margin: auto;
+    /* this is for overflowing content */
+}
+
+.jspsych-top {
+    align-items: flex-start;
+    float: center;
+}
+
+.jspsych-middle {
+    align-items: center;
+}
+
+
+/* fonts and type */
+
+.jspsych-display-element {
+    font-family: 'Open Sans', 'Arial', sans-serif;
+    line-height: 1.6em;
+    background-color: #555;
+    font-size: x-large;
+    font-family: Arial, Helvetica, sans-serif;
+    color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+
+/* Form elements like input fields and buttons */
+
+.jspsych-display-element input[type="number"] {
+    font-family: 'Open Sans', 'Arial', sans-serif;
+    font-size: 15px;
+}
+
+
+/* borrowing Bootstrap style for btn elements, but combining styles a bit */
+
+.jspsych-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin: 0px;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'Open Sans', 'Arial', sans-serif;
+    cursor: pointer;
+    line-height: 1.4;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+.jspsych-btn:hover {
+    background-color: #ddd;
+    border-color: #aaa;
+}
+
+.jspsych-btn:disabled {
+    background-color: #eee;
+    color: #aaa;
+    border-color: #ccc;
+    cursor: not-allowed;
+}
+
+
+/* jsPsych progress bar */
+
+#jspsych-progressbar-container {
+    color: #555;
+    border-bottom: 1px solid #dedede;
+    background-color: #f9f9f9;
+    margin-bottom: 1em;
+    text-align: center;
+    padding: 8px 0px;
+    width: 100%;
+    line-height: 1em;
+}
+
+#jspsych-progressbar-container span {
+    font-size: 14px;
+    padding-right: 14px;
+}
+
+#jspsych-progressbar-outer {
+    background-color: #eee;
+    width: 50%;
+    margin: auto;
+    height: 14px;
+    display: inline-block;
+    vertical-align: middle;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+#jspsych-progressbar-inner {
+    background-color: #aaa;
+    width: 0%;
+    height: 100%;
+}
+
+
+/* Control appearance of jsPsych.data.displayData() */
+
+#jspsych-data-display {
+    text-align: center;
+}
+
+#jspsych-html-keyboard-response-stimulus {
+    font-family: monospace;
+    font-size: 28px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+
+#jspsych-html-visual-analog-stimulus {
+    font-family: monospace;
+    font-size: 28px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+
+#total_wrapper {
+    position: relative;
+    width: 100%;
+    bottom: -300px;
+    transform: translateY(-50%, -50%);
+}
+
+#jspsych-visual-button-stimulus {
+    font-family: monospace;
+    max-width: 50%;
+    max-height: 50%;
+    min-height: 21%;
+    font-size: 28px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+#jspsych-begin-experiment {
+    font-family: monospace;
+    max-width: 50%;
+    max-height: 50%;
+    min-height: 21%;
+    font-size: 28px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.line {
+    border-top: 2px solid whitesmoke;
+    border-right: 2px solid whitesmoke;
+    width: 110px;
+    Height: 15px;
+    float: left;
+    margin: 0 auto;
+}
+
+.lineRightEnd {
+    border-right: 0;
+    bottom: 0;
+    left: 0;
+    float: left;
+}
+
+.lineContainer {
+    position: absolute;
+    float: left;
+    justify-content: right;
+}
+
+.textContainer {
+    position: absolute;
+    top: 14px;
+    margin: 1;
+    padding: 0;
+    text-align: center;
+    float: center;
+    justify-content: left;
+    bottom: 0;
+    left: 0;
+    line-height: 20px
+}
+
+.textButton {
+    width: 112px;
+    float: left;
+    margin: 1;
+    padding: 1;
+    text-align: center;
+    background: none;
+    border: none;
+    font-size: 15px;
+}
+
+.textLeftEnd {
+    width: 55px;
+    Height: 10px;
+    float: left;
+    margin: 0;
+    padding: 0;
+    align-items: normal;
+}
+
+dl:hover {
+    cursor: default;
+    background: darkgray;
+}
+
+.newTextButtonundefined {
+    display: inline-block;
+    padding: 6px 12px;
+    margin: 5px;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: 'Open Sans', 'Arial', sans-serif;
+    cursor: pointer;
+    line-height: 1.4;
+    text-align: center;
+    white-space: nowrap;
+    background-image: none;
+    position: absolute;
+    top: 100%;
+    left: 49%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+.newTextButton1 {
+    display: inline-block;
+    padding: 6px 12px;
+    margin: 5px;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: 'Open Sans', 'Arial', sans-serif;
+    cursor: pointer;
+    line-height: 1.4;
+    text-align: center;
+    white-space: normal;
+    background-image: none;
+    position: relative;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+.newTextButton2 {
+    display: inline-block;
+    padding: 6px 12px;
+    margin: 5px;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: 'Open Sans', 'Arial', sans-serif;
+    cursor: pointer;
+    line-height: 1.4;
+    text-align: center;
+    white-space: normal;
+    background-image: none;
+    position: relative;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+#newSelectionPress:hover {
+    cursor: default;
+    background: darkgray;
+}
+
+#footer {
+    bottom: 0;
+    max-width: 20%;
+    position: absolute;
+}
+
+#notParticipate {
+    font-family: monospace;
+    font-size: 28px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.continueButton {
+    font-size: 20px;
+    font-weight: 400;
+    font-family: 'Open Sans', 'Arial', sans-serif;
+    cursor: pointer;
+    background-image: none;
+    border: 10px solid #555555;
+    color: #333;
+    background-color: #fff;
+    border-color: #555555;
+    border-radius: 16px;
+}
+
+#debriefButton {
+    font-size: 20px;
+    font-weight: 400;
+    font-family: 'Open Sans', 'Arial', sans-serif;
+    cursor: pointer;
+    background-image: none;
+    border: 10px solid #555555;
+    color: #333;
+    background-color: #fff;
+    border-color: #555555;
+    border-radius: 16px;
+    width: 200px;
+    height: 75px;
+    position: fixed;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+}
+
+#jspsych-debrief-stimulus {
+    font-family: monospace;
+    max-width: 50%;
+    font-size: 28px;
+    padding: 60px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    display: block;
+}
+
+#jspsych-visual-continue-stimulus {
+    font-family: monospace;
+    font-size: 28px;
+}
+
+#contactNumber {
+    font-family: monospace;
+    text-decoration: underline;
+}
+
+.jspsych-dropdown-text {
+    display: inline-block;
+    margin-right: 4px;
+}
+
+.column1 {
+    width: 75%
+}
+
+.column2 {
+    width: 25%
+}
+
+#jspsych-multiple-question-survey-text-stimulus {
+    text-align: left;
+    position: relative;
+    max-width: 100%;
+    font-family: monospace;
+    font-size: 28px;
+}
+
+#jspsych-multiple-question-survey-text-wrapper {
+    float: left;
+    position: absolute;
+    font-family: monospace;
+    font-size: 28px;
+}
+
+.multi-input {
+    text-align: left;
+    display: block;
+}
+
+.line2 {
+    border-top: 2px solid #555555;
+    border-right: 2px solid #555555;
+    width: 100px;
+    Height: 15px;
+    float: left;
+    margin: 0 auto;
+}
+
+.lineRightEnd2 {
+    border-right: 0;
+    bottom: 0;
+    left: 0;
+    float: left;
+}
+
+.lineContainer2 {
+    position: absolute;
+    float: left;
+    justify-content: right;
+    border-top: 2px solid #555555;
+    border-right: 2px solid #555555;
+}
+
+#consentButton0 {
+    font-size: 20px;
+    font-weight: 400;
+    font-family: 'Open Sans', 'Arial', sans-serif;
+    cursor: pointer;
+    background-image: none;
+    border: 10px solid #555555;
+    color: #333;
+    background-color: #fff;
+    border-color: #555555;
+    border-radius: 16px;
+    width: 100px;
+    height: 100px;
+    position: fixed;
+    top: 70%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    display: block;
+}
+
+#consentButton1 {
+    font-size: 20px;
+    font-weight: 400;
+    font-family: 'Open Sans', 'Arial', sans-serif;
+    cursor: pointer;
+    background-image: none;
+    border: 10px solid #555555;
+    color: #333;
+    background-color: #fff;
+    border-color: #555555;
+    border-radius: 16px;
+    width: 100px;
+    height: 100px;
+    position: fixed;
+    top: 70%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    display: block;
+}
+
+#beginexperimentbutton {
+    font-size: 20px;
+    font-weight: 400;
+    font-family: 'Open Sans', 'Arial', sans-serif;
+    cursor: pointer;
+    background-image: none;
+    border: 10px solid #555555;
+    color: #333;
+    background-color: #fff;
+    border-color: #555555;
+    border-radius: 16px;
+    width: 200px;
+    height: 100px;
+    position: fixed;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+}
+
+.textContainer2 {
+    position: absolute;
+    top: 14px;
+    margin: 1;
+    padding: 0;
+    text-align: center;
+    float: center;
+    justify-content: left;
+    bottom: 0;
+    left: 0;
+}
+
+#beginexperimentbutton:hover {
+    cursor: link;
+    background: darkgray;
+}
+
+#consentButton:hover {
+    cursor: link;
+    background: darkgray;
+}
+
+#logo {
+    font-family: monospace;
+    max-width: 30%;
+    position: fixed;
+    top: 50%;
+    padding-bottom: 60px;
+    left: 50%;
+    margin-top: -20%;
+    transform: translate(-50%, -50%);
+    display: block;
+}
+
+.jspsych-this-or-that-right {
+    position: absolute;
+    right: 0px;
+    width: 50%;
+}
+
+.jspsych-this-or-that-left {
+    position: absolute;
+    left: 0px;
+    width: 50%;
+}
+
+#leftChoice {
+    position: absolute;
+    left: 0px;
+    top: 40%;
+    width: 50%;
+}
+
+#rightChoice {
+    position: absolute;
+    right: 0px;
+    top: 40%;
+    width: 50%;
+}
+
+.trialPrompt {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -20%;
+    transform: translate(-50%, -50%);
+    display: block;
+}
+
+#finished {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -20%;
+    transform: translate(-50%, -50%);
+    display: block;
+}

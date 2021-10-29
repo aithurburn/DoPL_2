@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script type="text/javascript" src="jspsych-6.1.0/jspsych.js"></script>
+  <link rel="stylesheet" type="text/css" href="jspsych-6.1.0/css/jspsych.css" />
+
+  <script type="text/javascript" src="jspsych-6.1.0/plugins/jspsych-html-keyboard-response.js"></script>
+  <script type="text/javascript" src="jspsych-6.1.0/plugins/jspsychVisualContinueButton.js"></script>
+  <script type="text/javascript" src="jspsych-6.1.0/plugins/jspsych-fullscreen.js"></script>
+  <script type="text/javascript" src="jspsych-6.1.0/plugins/jspsych-age-check.js"></script>
+  <script type="text/javascript" src="jspsych-6.1.0/plugins/jspsych-visual-analog-scale.js"></script>
+  <script type="text/javascript" src="jspsych-6.1.0/plugins/jspsychVisualButtonAndKeyboard.js"></script>
+  <script type="text/javascript" src="jspsych-6.1.0/plugins/jspsych-visual-analog-scale-3.js"></script>
+  <script type="text/javascript" src="jspsych-6.1.0/plugins/jspsych-visual-analog-scale-4.js"></script>
+  <script type="text/javascript" src="jspsych-6.1.0/plugins/jspsych-visual-analog-scale-5.js"></script>
+  <script type="text/javascript" src="jspsych-6.1.0/plugins/jspsych-visual-analog-scale-6.js"></script>
+  <script type="text/javascript" src="jspsych-6.1.0/plugins/jspsych-visual-analog-scale-7.js"></script>
+  <script type="text/javascript" src="jspsych-6.1.0/plugins/jspsych-visual-analog-scale-8.js"></script>
+  <script type="text/javascript" src="jspsych-6.1.0/plugins/jspsych-visual-analog-scale-9.js"></script>
+  <script src="jspsych-6.1.0/configuration/experimentStimuli.js"></script>
+  <script type="text/javascript" src="jspsych-6.1.0/configuration/stimuliOptions.js"></script>
+  <script type="text/javascript" src="jspsych-6.1.0/configuration/Vignette_Ideas.js"></script>
+  <script type="text/javascript" src="jspsych-6.1.0\jquery-3.5.1.js"></script>
+  <!-- <script type="text/javascript" src="lib/jspsych-pavlovia-3.0.0.js"></script> -->
+  <style>
+
+  </style>
+</head>
+
+<body></body>
+<script>
+  var timeline = [];
+  timeline.push({
+    type: "fullscreen",
+    fullscreen_mode: true,
+  });
+
+
+  /*var pavlovia_init = {
+    type: "pavlovia",
+    command: "init"
+  };
+  timeline.push(pavlovia_init);
+*/
+
+
+  var welcome = {
+    type: 'visualContinueButton',
+    stimulus: "Welcome to the experiment. Press any key or press 'Continue' to begin.",
+    labels: ["Continue"],
+    choices: undefined,
+    prompt: "",
+    ineligibleMessage: "",
+    post_trial_gap: 500,
+  };
+
+
+
+  var consentForm = {
+    type: 'visualButtonAndKeyboard',
+    stimulus: "<p>This experiment is being conducted in JavaScript hosted on Pavlovia.org. Your anonymous data will be saved and stored securely on University of Edinburgh server. The collection of personal data will be kept to a minimum to ensure anonymity is maintained.</p> <p>Please confirm that you have read and understood the participant information sheet and consent to participant in this experiment by pressing the 'Y' key. If you do not agree to the terms please indicate so by press the 'N' key.</p> <p> You may also use your mouse to select either 'Yes' or 'No' below </p>",
+    choices: [89, 78], //Yes or No
+    post_trial_gap: 500,
+    labels: ["Yes, I agree", "No, I do not agree"],
+    prompt: "",
+    ineligibleMessage: "You have chosen not to participate in this experiment. Please have a nice day. You may now close this window. ",
+    on_finish: function (data) {
+      if (data.key_press == "n") {
+        document.body.innerHTML =
+          "<center id = 'notParticipate'> You have chosen not to participate in this experiment. Please have a nice day. You may now close this window.</center>";
+      }
+    }
+
+
+
+  };
+
+  var instructions = {
+    type: 'visualButtonAndKeyboard',
+    stimulus: instructionsStimulus,
+    choices: undefined, //Yes or No
+    post_trial_gap: 500,
+    labels: ["Continue"],
+    prompt: "",
+    ineligibleMessage: "You have chosen not to participate in this experiment. Please have a nice day. You may now close this window. ",
+    on_finish: function (data) {
+      if (data.key_press == "n") {
+        document.body.innerHTML =
+          "<center id = 'notParticipate'> You have chosen not to participate in this experiment. Please have a nice day. You may now close this window.</center>";
+      }
+    }
+  }
+
+  var demographicBlock = {
+    timeline: [{
+        type: "age-check",
+        questions: [{
+          prompt: ageStimulus,
+          name: "Age"
+        }],
+        post_trial_gap: 500,
+        button_label: "Prefer not to respond",
+        minAge: 18,
+      },
+      {
+        type: 'visual-analog-scale-6',
+        stimulus: genderStimulus,
+        choices: [
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          97,
+          98,
+          99,
+          100,
+          101,
+          102,
+          103,
+          104,
+        ],
+        labels: genderOptions,
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale-8',
+        stimulus: ethnicityStimulus,
+        choices: [
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          97,
+          98,
+          99,
+          100,
+          101,
+          102,
+          103,
+          104,
+        ],
+        labels: ethnicityOptions,
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale-9',
+        stimulus: ethnicOriginStimulus,
+        choices: [
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          97,
+          98,
+          99,
+          100,
+          101,
+          102,
+          103,
+          104,
+          105
+        ],
+        labels: ethnicOriginOptions,
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale-7',
+        stimulus: educationStimulus,
+        choices: [
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          97,
+          98,
+          99,
+          100,
+          101,
+          102,
+          103,
+        ],
+        labels: educationOptions,
+        post_trial_gap: 500,
+        prompt: ""
+      },
+    ],
+  };
+
+  var spiteBlock = {
+    timeline: [{
+        type: 'visual-analog-scale',
+        stimulus: scaleChangeStimulusOne,
+        choices: [49, 97],
+        labels: optionsChange,
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: spiteOne,
+        labels: spiteOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: spiteTwo,
+        labels: spiteOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: spiteThree,
+        labels: spiteOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: spiteFour,
+        labels: spiteOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: spiteFive,
+        labels: spiteOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: spiteSix,
+        labels: spiteOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: spiteSeven,
+        labels: spiteOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: spiteEight,
+        labels: spiteOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: spiteNine,
+        labels: spiteOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: spiteTen,
+        labels: spiteOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: spiteEleven,
+        labels: spiteOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: spiteTwelve,
+        labels: spiteOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: spiteThirteen,
+        labels: spiteOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: spiteFourteen,
+        labels: spiteOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: spiteFifteen,
+        labels: spiteOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: spiteSixteen,
+        labels: spiteOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: "",
+      },
+    ],
+  };
+  var sessBlock = {
+    timeline: [{
+        type: 'visual-analog-scale',
+        stimulus: scaleChangeStimulusTwo,
+        choices: [50, 98, "(2)"],
+        labels: optionsChange,
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: sessOne,
+        labels: sessOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: sessTwo,
+        labels: sessOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: sessThree,
+        labels: sessOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: sessFour,
+        labels: sessOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: sessFive,
+        labels: sessOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: sessSix,
+        labels: sessOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: sessSeven,
+        labels: sessOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: sessEight,
+        labels: sessOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: sessNine,
+        labels: sessOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: sessTen,
+        labels: sessOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+    ],
+  };
+  var srpsBlock = {
+    timeline: [{
+        type: 'visual-analog-scale',
+        stimulus: scaleChangeStimulusThree,
+        labels: optionsChange,
+        choices: [51, 99, "(1)"],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale-4',
+        stimulus: srpsOne,
+        labels: srpsOptions,
+        choices: [49, 50, 51, 52, 97, 98, 99, 100],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale-4',
+        stimulus: srpsTwo,
+        labels: srpsOptions,
+        choices: [49, 50, 51, 52, 97, 98, 99, 100],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale-4',
+        stimulus: srpsThree,
+        labels: srpsOptions,
+        choices: [49, 50, 51, 52, 97, 98, 99, 100],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale-4',
+        stimulus: srpsFour,
+        labels: srpsOptions,
+        choices: [49, 50, 51, 52, 97, 98, 99, 100],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale-4',
+        stimulus: srpsFive,
+        labels: srpsOptions,
+        choices: [49, 50, 51, 52, 97, 98, 99, 100],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale-4',
+        stimulus: srpsSix,
+        labels: srpsOptions,
+        choices: [49, 50, 51, 52, 97, 98, 99, 100],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale-4',
+        stimulus: srpsSeven,
+        labels: srpsOptions,
+        choices: [49, 50, 51, 52, 97, 98, 99, 100],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale-4',
+        stimulus: srpsEight,
+        labels: srpsOptions,
+        choices: [49, 50, 51, 52, 97, 98, 99, 100],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale-4',
+        stimulus: srpsNine,
+        labels: srpsOptions,
+        choices: [49, 50, 51, 52, 97, 98, 99, 100],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale-4',
+        stimulus: srpsTen,
+        labels: srpsOptions,
+        choices: [49, 50, 51, 52, 97, 98, 99, 100],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale-4',
+        stimulus: srpsEleven,
+        labels: srpsOptions,
+        choices: [49, 50, 51, 52, 97, 98, 99, 100],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale-4',
+        stimulus: srpsTwelve,
+        labels: srpsOptions,
+        choices: [49, 50, 51, 52, 97, 98, 99, 100],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale-4',
+        stimulus: srpsThirteen,
+        labels: srpsOptions,
+        choices: [49, 50, 51, 52, 97, 98, 99, 100],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale-4',
+        stimulus: srpsFourteen,
+        labels: srpsOptions,
+        choices: [49, 50, 51, 52, 97, 98, 99, 100],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale-4',
+        stimulus: srpsFifteen,
+        labels: srpsOptions,
+        choices: [49, 50, 51, 52, 97, 98, 99, 100],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: scaleChangeStimulusFour,
+        choices: [52, 100, "(4)"],
+        labels: optionsChange,
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale-3',
+        stimulus: srpsSixteen,
+        labels: srpsOptions2,
+        choices: [49, 50, 51, 97, 98, 99],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale-3',
+        stimulus: srpsSeventeen,
+        labels: srpsOptions2,
+        choices: [49, 50, 51, 97, 98, 99],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale-3',
+        stimulus: srpsEighteen,
+        labels: srpsOptions2,
+        choices: [49, 50, 51, 97, 98, 99],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale-3',
+        stimulus: srpsNineteen,
+        labels: srpsOptions2,
+        choices: [49, 50, 51, 97, 98, 99],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale-3',
+        stimulus: srpsTwenty,
+        labels: srpsOptions2,
+        choices: [49, 50, 51, 97, 98, 99],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale-3',
+        stimulus: srpsTwentyOne,
+        labels: srpsOptions2,
+        choices: [49, 50, 51, 97, 98, 99],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale-3',
+        stimulus: srpsTwentyTwo,
+        labels: srpsOptions2,
+        choices: [49, 50, 51, 97, 98, 99],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale-3',
+        stimulus: srpsTwentyThree,
+        labels: srpsOptions2,
+        choices: [49, 50, 51, 97, 98, 99],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+    ],
+  };
+  var sjsBlock = {
+    timeline: [{
+        type: 'visual-analog-scale',
+        stimulus: scaleChangeStimulusFive,
+        labels: optionsChange,
+        choices: [53, 101, "(5)"],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale-6',
+        stimulus: sjsOne,
+        labels: sjsOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale-6',
+        stimulus: sjsTwo,
+        labels: sjsOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale-6',
+        stimulus: sjsThree,
+        labels: sjsOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+    ],
+  };
+  var vignetteOne = {
+    timeline: [{
+        type: 'visualButtonAndKeyboard',
+        stimulus: vignetteScaleChange,
+        choices: ["y", "n"],
+        post_trial_gap: 500,
+        labels: ["Continue", "Do not continue"],
+        prompt: "",
+        ineligibleMessage: "You have chosen not to participate in this experiment. Please have a nice day. You may now close this window. ",
+        on_finish: function (data) {
+          if (data.key_press == "n") {
+            document.body.innerHTML =
+              "<center id = 'notParticipate'> You have chosen not to participate in this experiment. Please have a nice day. You may now close this window.</center>";
+          }
+        }
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: newVignOne,
+        labels: justificationOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+
+      {
+        type: 'visual-analog-scale-4',
+        stimulus: vignOneQuestion,
+        labels: punishmentOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: realism,
+        labels: realismOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+    ],
+  };
+  var vignetteTwo = {
+    timeline: [{
+        type: 'visual-analog-scale',
+        stimulus: newVignTwo,
+        labels: justificationOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+
+      {
+        type: 'visual-analog-scale-4',
+        stimulus: vignTwoQuestion,
+        labels: punishmentOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: realism,
+        labels: realismOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+    ],
+  };
+  var vignetteThree = {
+    timeline: [{
+        type: 'visual-analog-scale',
+        stimulus: newVignThree,
+        labels: justificationOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+
+      {
+        type: 'visual-analog-scale-4',
+        stimulus: vignThreeQuestion,
+        labels: punishmentOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: realism,
+        labels: realismOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+    ],
+  };
+  var vignetteFour = {
+    timeline: [{
+        type: 'visual-analog-scale',
+        stimulus: newVignFour,
+        labels: justificationOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+
+      {
+        type: 'visual-analog-scale-4',
+        stimulus: vignFourQuestion,
+        labels: punishmentOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: realism,
+        labels: realismOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+    ],
+  };
+  var vignetteFive = {
+    timeline: [{
+        type: 'visual-analog-scale',
+        stimulus: newVignFive,
+        labels: justificationOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+
+      {
+        type: 'visual-analog-scale-4',
+        stimulus: vignFiveQuestion,
+        labels: punishmentOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: realism,
+        labels: realismOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+    ],
+  };
+  var vignetteSix = {
+    timeline: [{
+        type: 'visual-analog-scale',
+        stimulus: newVignSix,
+        labels: justificationOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+
+      {
+        type: 'visual-analog-scale',
+        stimulus: vignSixQuestion,
+        labels: fairnessOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: realism,
+        labels: realismOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+    ],
+  };
+  var vignetteSeven = {
+    timeline: [{
+        type: 'visual-analog-scale',
+        stimulus: newVignSeven,
+        labels: justificationOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+
+      {
+        type: 'visual-analog-scale',
+        stimulus: vignSevenQuestion,
+        labels: fairnessOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: realism,
+        labels: realismOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+    ],
+  };
+  var vignetteEight = {
+    timeline: [{
+        type: 'visual-analog-scale',
+        stimulus: newVignEight,
+        labels: justificationOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale-4',
+        stimulus: vignEightQuestion,
+        labels: punishmentOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: realism,
+        labels: realismOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+    ],
+  };
+  var vignetteNine = {
+    timeline: [{
+        type: 'visual-analog-scale',
+        stimulus: newVignNine,
+        labels: justificationOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale-4',
+        stimulus: vignNineQuestion,
+        labels: punishmentOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: realism,
+        labels: realismOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+    ],
+  };
+  var vignetteTen = {
+    timeline: [{
+        type: 'visual-analog-scale',
+        stimulus: newVignTen,
+        labels: justificationOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: vignTenQuestion,
+        labels: fairnessOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: realism,
+        labels: realismOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+    ],
+  };
+  var vignetteEleven = {
+    timeline: [{
+        type: 'visual-analog-scale',
+        stimulus: newVignEleven,
+        labels: justificationOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: vignElevenQuestion,
+        labels: fairnessOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: realism,
+        labels: realismOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+    ],
+  };
+  var vignetteTwelve = {
+    timeline: [{
+        type: 'visual-analog-scale',
+        stimulus: newVignTwelve,
+        labels: justificationOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale-4',
+        stimulus: vignTwelveQuestion,
+        labels: punishmentOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: realism,
+        labels: realismOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+    ],
+  };
+  var vignetteThirteen = {
+    timeline: [{
+        type: 'visual-analog-scale',
+        stimulus: newVignThirteen,
+        labels: justificationOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale-4',
+        stimulus: vignThirteenQuestion,
+        labels: punishmentOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: realism,
+        labels: realismOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+    ],
+  };
+  var vignetteFourteen = {
+    timeline: [{
+        type: 'visual-analog-scale',
+        stimulus: newVignFourteen,
+        labels: justificationOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale-4',
+        stimulus: vignFourteenQuestion,
+        labels: punishmentOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: realism,
+        labels: realismOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+    ],
+  };
+  var vignetteFifteen = {
+    timeline: [{
+        type: 'visual-analog-scale',
+        stimulus: newVignFifteen,
+        labels: justificationOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: vignFifteenQuestion,
+        labels: justificationOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: realism,
+        labels: realismOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+    ],
+  };
+  var vignetteSixteen = {
+    timeline: [{
+        type: 'visual-analog-scale',
+        stimulus: vignOne,
+        labels: justificationOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: vignSixteenQuestion,
+        labels: fairnessOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: realism,
+        labels: realismOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+    ],
+  };
+  var vignetteSeventeen = {
+    timeline: [{
+        type: 'visual-analog-scale',
+        stimulus: vignTwo,
+        labels: justificationOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: vignSeventeenQuestion,
+        labels: fairnessOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: realism,
+        labels: realismOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+    ],
+  };
+  var vignetteEighteen = {
+    timeline: [{
+        type: 'visual-analog-scale',
+        stimulus: vignThree,
+        labels: justificationOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale-4',
+        stimulus: vignEighteenQuestion,
+        labels: punishmentOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: realism,
+        labels: realismOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+    ],
+  };
+  var vignetteNineteen = {
+    timeline: [{
+        type: 'visual-analog-scale',
+        stimulus: vignFour,
+        labels: justificationOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: vignNineteenQuestion,
+        labels: justificationOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: realism,
+        labels: realismOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+    ],
+  };
+  var vignetteTwenty = {
+    timeline: [{
+        type: 'visual-analog-scale',
+        stimulus: vignFive,
+        labels: justificationOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: vignTwentyQuestion,
+        labels: fairnessOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: realism,
+        labels: realismOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+    ],
+  };
+
+  var vignetteTwentyOne = {
+    timeline: [{
+        type: 'visual-analog-scale',
+        stimulus: vignSix,
+        labels: justificationOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+      {
+        type: 'visual-analog-scale-4',
+        stimulus: vignTwentyOneQuestion,
+        labels: punishmentOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+
+      },
+      {
+        type: 'visual-analog-scale',
+        stimulus: realism,
+        labels: justificationOptions,
+        choices: [49, 50, 51, 52, 53, 97, 98, 99, 100, 101],
+        post_trial_gap: 500,
+        prompt: ""
+      },
+    ],
+  };
+
+  var debriefBlock = {
+  type: 'visualContinueButton',
+  stimulus:  "<p> This experiment had three goals. The first goal, we wanted to understand the relationship between vindictive behavior and (non)sexual behavior. We sought to contribute to our understanding of spiteful behavior outside of the traditional gaming tasks. </p><p> The second goal was to allow for a better understanding of spiteful behavior to allow for further experimentation and investigation of problematic social behaviors and sexuality. Finally, the experiment sought to further the findings from a previous experiment. </p><p> If you have any further questions or wish to withdraw your participation, please do not hesitate to contact the researchers.</p><p>Andrew Ithurburn a.ithurburn@sms.ed.ac.uk <br> Dr. Adam Moore amoore23@staffmail.ed.ac.uk <br> Thank you! Please press continue to complete the study and return to Prolific Academic. </p>",
+  labels: ["Continue"],
+    choices: undefined,
+    prompt: "",
+    ineligibleMessage: "",
+    post_trial_gap: 500,
+  };
+  var test_array = [sessBlock, spiteBlock, sjsBlock, srpsBlock];
+  var test_procedure = jsPsych.randomization.shuffle(test_array);
+  var vignetteArray = [vignetteOne, vignetteTwo, vignetteThree, vignetteFour, vignetteFive, vignetteSix,
+    vignetteSeven,
+    vignetteEight, vignetteNine, vignetteTen, vignetteEleven, vignetteTwelve, vignetteThirteen, vignetteFourteen,
+    vignetteFifteen, vignetteSixteen, vignetteSeventeen, vignetteEighteen, vignetteNineteen, vignetteTwenty,
+    vignetteTwentyOne
+  ];
+  var vignetteProcedure = jsPsych.randomization.shuffle(vignetteArray);
+  timeline.push(welcome);
+  timeline.push(consentForm);
+  timeline.push(instructions);
+  timeline.push(demographicBlock);
+  timeline = timeline.concat(test_procedure);
+  timeline = timeline.concat(vignetteProcedure);
+  timeline.push(debriefBlock);
+
+  /* var pavlovia_finish = {
+    type: "pavlovia",
+    command: "finish"
+  };
+  timeline.push(pavlovia_finish);
+*/
+  timeline.push({
+    type: "fullscreen",
+    fullscreen_mode: false,
+  });
+
+  jsPsych.init({
+    timeline: timeline,
+    on_finish: function () {
+
+      document.body.innerHTML =
+        "<center id = 'notParticipate'> Please wait. You will be redirected back to Prolific in a few moments. </center>";
+      setTimeout(function () {
+        location.href =
+          "https://app.prolific.co/submissions/complete?cc=5D169A15";
+      }, 10000);
+    },
+  });
+</script>
+
+</html>
